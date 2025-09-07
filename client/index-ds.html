@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reveal Sdk - Create New Dashboard</title>
+    <link rel="stylesheet" href="styles/common.css">
+</head>
+
+<body>
+    <div class="dashboard-controls">
+        <div class="control-group">
+            <h2>MySQL Dashboard</h2>
+        </div>
+    </div>
+    
+    <div id="revealView"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://dl.revealbi.io/reveal/libs/1.7.6/infragistics.reveal.js"></script>
+
+    <script type="text/javascript">
+        $.ig.RevealSdkSettings.setBaseUrl("http://localhost:5111/");
+        $.ig.RevealSdkSettings.enableActionsOnHoverTooltip = true;
+
+        $(document).ready(function() {
+            const revealView = new $.ig.RevealView("#revealView");
+            revealView.interactiveFilteringEnabled = true;
+            revealView.startInEditMode = true;    
+            
+            revealView.onDataSourcesRequested = (callback) => {                    
+                const sqlDs = new $.ig.RVMySqlDataSource();
+                sqlDs.id = "sqlServer";
+                sqlDs.title = "MySQL Server Data Source";
+                sqlDs.subtitle = "Northwind Database";
+
+                callback(new $.ig.RevealDataSources([sqlDs], [], false));
+            };
+        });
+    </script>
+</body>
+
+</html>

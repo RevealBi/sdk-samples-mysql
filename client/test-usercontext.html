@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test UserContextProvider</title>
+</head>
+<body>
+    <h1>Test UserContextProvider</h1>
+    <p>This page sets the x-header-one header to test if the UserContextProvider is being called.</p>
+    <div id="revealView" style="height: 800px; width: 100%;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://dl.revealbi.io/reveal/libs/1.7.6/infragistics.reveal.js"></script>
+
+    <script type="text/javascript">
+        // Set base URL for Reveal SDK
+        $.ig.RevealSdkSettings.setBaseUrl("http://localhost:5111/");
+        
+        // Always set the header
+        $.ig.RevealSdkSettings.setAdditionalHeadersProvider(function (url) {
+            console.log("Setting headers for URL: " + url);
+            return {
+                "x-header-one": "userId:11,orderId:12345"
+            };
+        });
+
+        // Create Reveal view and load a dashboard
+        $(document).ready(function() {
+            var revealView = new $.ig.RevealView("#revealView");
+            
+            // Load a dashboard that exists in your server
+            $.ig.RVDashboard.loadDashboard("Sales").then(dashboard => {
+                revealView.dashboard = dashboard;
+                console.log("Dashboard loaded successfully");
+            }).catch(error => {
+                console.error("Error loading dashboard:", error);
+            });
+        });
+    </script>
+</body>
+</html>

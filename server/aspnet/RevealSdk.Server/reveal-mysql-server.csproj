@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>RevealSdk_Net7</RootNamespace>
+    <Platforms>AnyCPU;x64</Platforms>
+    <UserSecretsId>bc7f835f-5b2b-455b-99ba-28c52db1faef</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reveal.Sdk.AspNetCore" Version="1.8.0" />
+    <PackageReference Include="Reveal.Sdk.Data.MySql" Version="1.8.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Reveal.Sdk.Dom" Version="0.1.656-beta" />
+
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reveal Sdk - MySQL Dynamic Data Sources</title>
+    <link rel="stylesheet" href="styles/common.css">
+</head>
+
+<body>
+    <div class="dashboard-controls">
+        <div class="control-group">
+            <div class="control-item">
+                <label class="control-label" for="customerId">User ID:</label>
+                <div class="custom-select">
+                    <select name="customers" id="customerId">
+                        <option value="1">Customer 1</option>
+                        <option value="2">Customer 2</option>
+                        <option value="3">Customer 3</option>
+                        <option value="11">Customer 11 (Admin)</option>
+                        <option value="12">Customer 12</option>                       
+                    </select>
+                </div>
+            </div>
+            
+            <div class="control-item">
+                <label class="control-label" for="orderId">Order ID:</label>
+                <div class="custom-select">
+                    <select name="orders" id="orderId">
+                        <option value="31">Order #31</option>
+                        <option value="32">Order #32</option>
+                        <option value="33">Order #33</option>
+                        <option value="41">Order #41</option>
+                        <option value="42">Order #42</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="revealView"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://dl.revealbi.io/reveal/libs/1.7.6/infragistics.reveal.js"></script>
+
+    <script type="text/javascript">
+        $.ig.RevealSdkSettings.setBaseUrl("http://localhost:5111/");
+        $.ig.RevealSdkSettings.setAdditionalHeadersProvider(function (url) {
+            return headers;
+        });
+
+        const headers = {};
+        let revealView;
+            
+        revealView = new $.ig.RevealView("#revealView");
+        revealView.startInEditMode = true;
+            
+        revealView.onDataSourcesRequested = (callback) => {
+            var selectedUserId = $('#customerId').val();
+            var selectedOrderId = $('#orderId').val();
+            headers["x-header-one"] = `userId:${selectedUserId},orderId:${selectedOrderId}`;
+            
+            // Add logging to check values
+            console.log(headers["x-header-one"]);
+
+            var mySqlDataSource = new $.ig.RVMySqlDataSource();
+            mySqlDataSource.id = "sqlServer";
+            mySqlDataSource.title = "MySQL Server Data Source";
+            mySqlDataSource.subtitle = "Full Northwind Database";
+
+            var mySqlDataSourceItem = new $.ig.RVMySqlDataSourceItem(mySqlDataSource);
+            mySqlDataSourceItem.id = "customer_orders";
+            mySqlDataSourceItem.title = "Customer Orders";
+            mySqlDataSourceItem.subtitle = "Customer specific orders";
+
+            var mySqlDataSourceItem1 = new $.ig.RVMySqlDataSourceItem(mySqlDataSource);
+            mySqlDataSourceItem1.id = "customer_orders_details";
+            mySqlDataSourceItem1.title = "Order Details";
+            mySqlDataSourceItem1.subtitle = "Order ID Parameter";
+
+            var mySqlDataSourceItem2 = new $.ig.RVMySqlDataSourceItem(mySqlDataSource);
+            mySqlDataSourceItem2.id = "sp_customer_orders";
+            mySqlDataSourceItem2.title = "Customer Orders (SP)";
+            mySqlDataSourceItem2.subtitle = "Stored Procedure with Customer ID";
+            
+            callback(new $.ig.RevealDataSources([mySqlDataSource], 
+                [mySqlDataSourceItem, mySqlDataSourceItem1, mySqlDataSourceItem2], false));
+        };
+    </script>
+</body>
+
+</html>

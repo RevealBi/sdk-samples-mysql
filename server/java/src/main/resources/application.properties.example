@@ -1,0 +1,11 @@
+spring.web.resources.static-locations=classpath:/static/images/
+server.port = 5111
+
+# Custom database properties 
+
+mysql.host=
+mysql.database=
+mysql.username=
+mysql.password=
+mysql.port=
+mysql.schema=
