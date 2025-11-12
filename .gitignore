@@ -49,6 +49,7 @@ dist
 .firebase/
 .tern-port
 .vscode-test
+.DS_Store
 
 # TypeScript
 *.tsbuildinfo

@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reveal.Sdk.AspNetCore" Version="1.8.0" />
-    <PackageReference Include="Reveal.Sdk.Data.MySql" Version="1.8.0" />
+    <PackageReference Include="Reveal.Sdk.AspNetCore" Version="1.8.1" />
+    <PackageReference Include="Reveal.Sdk.Data.MySql" Version="1.8.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Reveal.Sdk.Dom" Version="0.1.656-beta" />
 
