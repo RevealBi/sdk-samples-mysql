@@ -7,7 +7,7 @@ We're excited to kick off our Reveal BI Proof of Concept!
 Below are the key resources to help you get started — from MySQL backend integration to frontend setup and customization.
 We'll review this on the call along with some additional items.
 
-Kris will send you the Reveal Trial Key after our meeting so you can begin setup.
+Your account manager will send you the Reveal Trial Key after our meeting so you can begin setup.
 
 ---
 
@@ -16,12 +16,6 @@ Kris will send you the Reveal Trial Key after our meeting so you can begin setup
 **Reveal architecture overview and Node server setup** - note this video talks to Databricks, it's the same concept for MySQL, just the database type is different:
 
 https://youtu.be/prlgmY46xew
-
----
-
-Thanks,
-
-Jason
 
 ---
 
