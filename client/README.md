@@ -44,7 +44,7 @@ The client application provides a modern, single-page interface for working with
 - **Loading Indicators**: Visual feedback during dashboard loading
 
 **Technical Details:**
-- Uses jQuery (required by Reveal SDK)
+- Uses jQuery (required by Reveal SDK for this implementation)
 - Integrates Reveal SDK JavaScript library (v1.8.1)
 - Connects to the server at `http://localhost:5111/`
 - Implements `RevealView` component for dashboard rendering
@@ -92,9 +92,13 @@ Before running the client application, ensure you have:
 For better security and to avoid CORS issues, serve the files through a local web server:
 
 ```bash
-# Using Python 3
+# Using Python 3.x
 cd client
 python -m http.server 8080
+
+# Using Python 2.x (if applicable)
+cd client
+python -m SimpleHTTPServer 8080
 
 # Using Node.js http-server
 npm install -g http-server
@@ -146,12 +150,17 @@ client/
 ├── README.md                    # This file
 ├── index.html                   # Main navigation hub
 ├── load-dashboard.html          # Dashboard loading example
-├── index-ds.html                # Data sources example
-├── index-dsi.html               # Dynamic data sources example
-├── test-usercontext.html        # User context testing
+├── index-ds.html                # Static data sources example (creating new dashboards)
+├── index-dsi.html               # Dynamic data sources with user context parameters
+├── test-usercontext.html        # User context testing page
 └── styles/
     └── common.css               # Shared styles
 ```
+
+**Other Files:**
+- **index-ds.html**: Demonstrates creating new dashboards with static MySQL data sources
+- **index-dsi.html**: Shows how to use dynamic data sources with user-specific parameters (User ID, Order ID)
+- **test-usercontext.html**: A testing page for user context functionality
 
 ## Additional Resources
 
