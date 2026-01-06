@@ -81,36 +81,11 @@ Before running the client application, ensure you have:
 
 ## Getting Started
 
-### Option 1: Direct File Access (Simple)
+### Direct File Access
 
 1. Ensure the server is running on `http://localhost:5111/`
 2. Open `index.html` in your web browser
 3. Navigate between examples using the sidebar
-
-### Option 2: Local Web Server (Recommended)
-
-For better security and to avoid CORS issues, serve the files through a local web server:
-
-```bash
-# Using Python 3.x
-cd client
-python -m http.server 8080
-
-# Using Python 2.x (if applicable)
-cd client
-python -m SimpleHTTPServer 8080
-
-# Using Node.js http-server
-npm install -g http-server
-cd client
-http-server -p 8080
-
-# Using PHP
-cd client
-php -S localhost:8080
-```
-
-Then open `http://localhost:8080/index.html` in your browser.
 
 ## Configuration
 
@@ -129,7 +104,7 @@ Replace `http://localhost:5111/` with your server's URL.
 **Important**: The examples use CDN links for dependencies. For production environments:
 
 1. **Download Dependencies Locally**: 
-   - Download jQuery, Day.js, and Reveal SDK files
+   - Download jQuery, Day.js, and Reveal SDK files - Reveal SDK files can be found here -    [https://help.revealbi.io/web/install-client-sdk/](https://help.revealbi.io/web/install-client-sdk/)
    - Store them in the `client` directory
    - Update script tags to reference local files
 
