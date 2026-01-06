@@ -13,7 +13,7 @@ Kris will send you the Reveal Trial Key after our meeting so you can begin setup
 
 ## 📺 Intro Video
 
-**Reveal architecture overview and Node server setup** - note this video talks to Databricks, it's the same concept for MySql, just the database type is different:
+**Reveal architecture overview and Node server setup** - note this video talks to Databricks, it's the same concept for MySQL, just the database type is different:
 
 https://youtu.be/prlgmY46xew
 
