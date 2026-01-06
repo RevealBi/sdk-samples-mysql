@@ -18,7 +18,7 @@ tsconfig.json        - TypeScript configuration
 
 ## Features
 
-### Reveal SDK Configuration (`reveal.ts`)
+### Reveal SDK Configuration (`reveal.js`)
 - User context provider with header-based authentication
 - SQL Server authentication provider
 - Data source provider for SQL Server connections
@@ -27,7 +27,7 @@ tsconfig.json        - TypeScript configuration
 - Dashboard provider for file-based dashboard storage
 - Dashboard storage provider for saving dashboards
 
-### API Endpoints (`revealdom.ts`)
+### API Endpoints (`revealdom.js`)
 - `GET /` - Main page
 - `GET /dashboards/` - List dashboard filenames
 - `GET /dashboards/names` - Dashboard names and titles
